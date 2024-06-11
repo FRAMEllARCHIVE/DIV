@@ -29,22 +29,27 @@
         .white {
             background-color: white;
             color: black;
+            white-space: nowrap;
         }
         .about {
             background-color: lightgray;
             transform: translateY(-100%);
+            color: white;
         }
         .contact {
             background-color: lightblue;
             transform: translateY(100%);
+            color: white;
         }
         .us {
             background-color: lightgreen;
             transform: translateX(-100%);
+            color: white;
         }
         .them {
             background-color: lightcoral;
             transform: translateX(100%);
+            color: white;
         }
 
         .burger-menu {
@@ -110,9 +115,11 @@
 
     <a href="#" onclick="movePagesLeft(); movePagesLeft(); toggleMenu();">PROJECTS</a>
 
+    <a href="#" onclick="movePagesDown(); movePagesDown(); toggleMenu();">CAREERS</a>
+
     </div>
     <div class="page white">
-        &lt; /  &nbsp; D I V &nbsp; &nbsp;<span style="font-weight: bold;"> S T U D I O S   </span>&nbsp; &gt;
+        &lt; &nbsp; /  &nbsp; D I V &nbsp; &gt; &nbsp; &nbsp; <span style="font-weight: bold;"> S T U D I O S   </span>
     </div>
     <div class="page about">ABOUT</div>
     <div class="page contact">CONTACT</div>
