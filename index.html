@@ -46,9 +46,71 @@
             background-color: lightcoral;
             transform: translateX(100%);
         }
+
+        .burger-menu {
+            position: absolute;
+            top: 5%;
+            right: 33px;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0.3;
+            transition: 1.1s ease;
+        }
+
+        .bar {
+            width: 30px;
+            height: 4px;
+            background-color: black;
+            margin: 6px 0;
+            transition: 1.1s ease;
+            border-radius: 10px;
+        }
+        .change .bar {
+            border-radius: 10px;
+            transform: rotate(-45deg) translate(-5px, 5px);
+        }
+
+.menu-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 22px;
+    position: fixed;
+    top: 44px;
+    left: 33px;
+    z-index: 999;
+    visibility: hidden;
+    transition: 0.3s;
+    opacity: 0.3;
+}
+
+        .menu-items a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
     </style>
 </head>
 <body>
+    <div class="burger-menu" onclick="toggleMenu();  resetStyles();">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="menu-items">
+
+    <a href="#" onclick="movePagesUp(); movePagesUp(); toggleMenu();">ABOUT</a>
+
+    <a href="#" onclick="movePagesDown(); movePagesDown(); toggleMenu();">CONTACT</a>
+
+    <a href="#" onclick="movePagesRight(); movePagesRight(); toggleMenu();">CLIENTS</a>
+
+    <a href="#" onclick="movePagesLeft(); movePagesLeft(); toggleMenu();">PROJECTS</a>
+
+    </div>
     <div class="page white">
         &lt; /  &nbsp; D I V &nbsp; &nbsp;<span style="font-weight: bold;"> S T U D I O S   </span>&nbsp; &gt;
     </div>
@@ -58,6 +120,13 @@
     <div class="page them">THEM</div>
 
     <script>
+
+document.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+}, { passive: false });
+
+
+
         let aboutTranslateY = -100;
         let contactTranslateY = 100;
         let usTranslateX = -100;
@@ -71,33 +140,45 @@
         function movePagesUp() {
             aboutTranslateY = clamp(aboutTranslateY + 100, -200, 0);
             contactTranslateY = clamp(contactTranslateY + 100, 0, 200);
-            updateTransforms();
+            aboutPage.style.transform = `translateY(${aboutTranslateY}%)`;
+            contactPage.style.transform = `translateY(${contactTranslateY}%)`;
         }
 
         function movePagesDown() {
             aboutTranslateY = clamp(aboutTranslateY - 100, -200, 0);
             contactTranslateY = clamp(contactTranslateY - 100, 0, 200);
-            updateTransforms();
+            aboutPage.style.transform = `translateY(${aboutTranslateY}%)`;
+            contactPage.style.transform = `translateY(${contactTranslateY}%)`;
         }
 
         function movePagesLeft() {
             usTranslateX = clamp(usTranslateX + 100, -200, 0);
             themTranslateX = clamp(themTranslateX + 100, 0, 200);
-            updateTransforms();
+            usPage.style.transform = `translateX(${usTranslateX}%)`;
+            themPage.style.transform = `translateX(${themTranslateX}%)`;
         }
 
         function movePagesRight() {
             usTranslateX = clamp(usTranslateX - 100, -200, 0);
             themTranslateX = clamp(themTranslateX - 100, 0, 200);
-            updateTransforms();
-        }
-
-        function updateTransforms() {
-            aboutPage.style.transform = `translateY(${aboutTranslateY}%)`;
-            contactPage.style.transform = `translateY(${contactTranslateY}%)`;
             usPage.style.transform = `translateX(${usTranslateX}%)`;
             themPage.style.transform = `translateX(${themTranslateX}%)`;
         }
+
+
+function resetStyles() {
+    const aboutPage = document.querySelector('.about');
+    const contactPage = document.querySelector('.contact');
+    const usPage = document.querySelector('.us');
+    const themPage = document.querySelector('.them');
+
+    aboutPage.style.transform = "translateY(-100%)";
+    contactPage.style.transform = "translateY(100%)";
+    usPage.style.transform = "translateX(-100%)";
+    themPage.style.transform = "translateX(100%)";
+
+}
+
 
         function clamp(value, min, max) {
             return Math.max(min, Math.min(value, max));
@@ -105,15 +186,26 @@
 
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowUp') {
-                movePagesUp();
+                resetStyles(); movePagesUp(); movePagesUp();
             } else if (event.key === 'ArrowDown') {
-                movePagesDown();
+                resetStyles(); movePagesDown(); movePagesDown();
             } else if (event.key === 'ArrowLeft') {
-                movePagesLeft();
+                resetStyles(); movePagesLeft(); movePagesLeft();
             } else if (event.key === 'ArrowRight') {
-                movePagesRight();
+                resetStyles(); movePagesRight(); movePagesRight();
             }
         });
+
+function toggleMenu() {
+    const menu = document.querySelector('.menu-items');
+    menu.style.visibility = menu.style.visibility === 'visible' ? 'hidden' : 'visible';
+   
+    
+    const burgerMenuIcon = document.querySelector('.burger-menu');
+    burgerMenuIcon.style.opacity = burgerMenuIcon.style.opacity === '0.6' ? '0.3' : '0.6';
+}
+
+
     </script>
 </body>
 </html>
