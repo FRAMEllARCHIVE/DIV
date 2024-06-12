@@ -177,6 +177,9 @@ transform: translateX(-50%);
     </style>
 </head>
 <body>
+
+    <audio id="click-sound1" src="click1.mp3" preload="auto"></audio>
+    <audio id="click-sound2" src="click2.mp3" preload="auto"></audio>
     <div class="burger-menu" onclick="toggleMenu();  resetStyles();">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -208,16 +211,27 @@ transform: translateX(-50%);
 
     <script>
 
+        function handleClick1() {
+            var audio1 = document.getElementById('click-sound1');
+            audio1.play();
+        }
+        function handleClick2() {
+            var audio2 = document.getElementById('click-sound2');
+            audio2.play();
+        }
+
 function darkmode() {
     var body = document.body;
 
     if (body.style.backgroundColor === 'white' || body.style.backgroundColor === '') {
+handleClick1();
         body.style.backgroundColor = 'black';
         document.querySelectorAll('.white').forEach(function(item) {
             item.style.color = 'white';
             item.style.backgroundColor = 'black';
         });
     } else {
+handleClick2();
         body.style.backgroundColor = 'white';
         document.querySelectorAll('.white').forEach(function(item) {
             item.style.color = 'black';
