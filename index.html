@@ -106,12 +106,10 @@
     .menu-items {
         flex-direction: column;
         position: absolute;
-        left: 20%;
+        left: 10%;
         top: 20%;
-        gap: 55px;
+        gap: 44px;
         font-size:66px;
-        justify-content: center;
-        align-items: center;
         animation: scroll 9s cubic-bezier(0.1, 1, 1, 0.1) infinite;
     }
 
@@ -123,8 +121,6 @@
     font-size: 44px;
     opacity: 0.3;
     transition: opacity 1.1s;
-    justify-content: center;
-    align-items: center;
 }
 
         @keyframes scroll {
@@ -164,7 +160,7 @@
 
     <a href="#" onclick="movePagesLeft(); movePagesLeft(); toggleMenu();">PROJECTS</a>
 
-    <a href="#" onclick="movePagesDown(); movePagesDown(); toggleMenu();">CAREERS</a>
+    <a href="#" onclick="movePagesDown(); movePagesDown(); toggleMenu();">JOBS</a>
 
     </div>
 
@@ -176,11 +172,13 @@
     <div class="page us">US</div>
     <div class="page them">THEM</div>
 
-<script>
+    <script>
 
 document.addEventListener('touchmove', function(event) {
     event.preventDefault();
 }, { passive: false });
+
+
 
         let aboutTranslateY = -100;
         let contactTranslateY = 100;
