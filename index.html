@@ -6,7 +6,7 @@
     <title>DIV STUDIOS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="description" content="WEB DEVELOPEMENT"/>
-    <meta name="keywords" content="web, developement, coding, UI/UX, hosting, software, programming, design, marketing, internet">
+    <meta name="keywords" content="web, developement, coding, UI/UX, hosting, software, programming, design, marketing, internet, apps, android, PWA, games">
         
     <style>
         body, html {
@@ -182,19 +182,14 @@ transform: translateX(-50%);
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
-    <div class="menu-items">
-
-    <a href="#" onclick="movePagesUp(); movePagesUp(); toggleMenu();">ABOUT</a>
-
-    <a href="#" onclick="movePagesDown(); movePagesDown(); toggleMenu();">CONTACT</a>
-
-    <a href="#" onclick="movePagesRight(); movePagesRight(); toggleMenu();">CLIENTS</a>
-
-    <a href="#" onclick="movePagesLeft(); movePagesLeft(); toggleMenu();">PROJECTS</a>
-
-    <a href="#" onclick="movePagesDown(); movePagesDown(); toggleMenu();">JOBS</a>
-
-    </div>
+</div>
+<div class="menu-items">
+    <a data-target="about" onclick="movePagesUp(); movePagesUp(); toggleMenu();">ABOUT</a>
+    <a data-target="contact" onclick="movePagesDown(); movePagesDown(); toggleMenu();">CONTACT</a>
+    <a data-target="clients" onclick="movePagesRight(); movePagesRight(); toggleMenu();">CLIENTS</a>
+    <a data-target="projects" onclick="movePagesLeft(); movePagesLeft(); toggleMenu();">PROJECTS</a>
+    <a data-target="jobs" onclick="movePagesDown(); movePagesDown(); toggleMenu();">JOBS</a>
+</div>
 
 <div class="page white" id="toggleDiv">
     <div class="content">
